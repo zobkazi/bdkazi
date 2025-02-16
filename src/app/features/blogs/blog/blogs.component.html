@@ -1,0 +1,12 @@
+<div class="container">
+  <h2>Blog Posts</h2>
+  <p>Total Posts: {{ totalPosts }}</p>
+
+  <div *ngFor="let blog of blogs" class="blog-card">
+    <h3>{{ blog.title }}</h3>
+    <p><strong>Published:</strong> {{ blog.createdAt | date }}</p>
+    <p><strong>Category:</strong> {{ blog.categories.length > 0 ? blog.categories[0].category.name : 'No Category' }}</p>
+
+    <p>{{ blog.content }}</p>
+  </div>
+</div>

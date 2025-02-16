@@ -1,0 +1,8 @@
+<div class="container" *ngIf="blog">
+  <h2>{{ blog.title }}</h2>
+  <p><strong>Published:</strong> {{ blog.createdAt | date }}</p>
+  <p><strong>Category:</strong> {{ blog.categories.length > 0 ? blog.categories[0].category.name : 'No Category' }}</p>
+  <p>{{ blog.content }}</p>
+
+  <a routerLink="/blog">← Back to Blogs</a> <!-- ✅ Fix incorrect link -->
+</div>
