@@ -1,0 +1,125 @@
+<div class="register-container">
+    <nz-card>
+      <nz-card-header>
+        <h2 class="text-center">Register</h2>
+      </nz-card-header>
+  
+      <nz-card-body>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div nz-form-item nz-row>
+            <div nz-col [nzSpan]="24">
+              <nz-form-control
+                [nzValidateStatus]="registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched ? 'error' : ''"
+                [nzErrorTip]="'First name is required and should have at least 2 characters.'">
+                <nz-input
+                  formControlName="firstName"
+                  [nzPrefix]="firstNameIcon"
+                  placeholder="First Name"
+                  nzSize="large"></nz-input>
+              </nz-form-control>
+            </div>
+          </div>
+  
+          <div nz-form-item nz-row>
+            <div nz-col [nzSpan]="24">
+              <nz-form-control
+                [nzValidateStatus]="registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched ? 'error' : ''"
+                [nzErrorTip]="'Last name is required and should have at least 2 characters.'">
+                <nz-input
+                  formControlName="lastName"
+                  [nzPrefix]="lastNameIcon"
+                  placeholder="Last Name"
+                  nzSize="large"></nz-input>
+              </nz-form-control>
+            </div>
+          </div>
+  
+          <div nz-form-item nz-row>
+            <div nz-col [nzSpan]="24">
+              <nz-form-control
+                [nzValidateStatus]="registerForm.get('email')?.invalid && registerForm.get('email')?.touched ? 'error' : ''"
+                [nzErrorTip]="'Please enter a valid email address.'">
+                <nz-input
+                  formControlName="email"
+                  [nzPrefix]="emailIcon"
+                  placeholder="Email"
+                  type="email"
+                  nzSize="large"></nz-input>
+              </nz-form-control>
+            </div>
+          </div>
+  
+          <div nz-form-item nz-row>
+            <div nz-col [nzSpan]="24">
+              <nz-form-control
+                [nzValidateStatus]="registerForm.get('password')?.invalid && registerForm.get('password')?.touched ? 'error' : ''"
+                [nzErrorTip]="'Password is required and must be at least 6 characters.'">
+                <nz-input-password
+                  formControlName="password"
+                  [nzPrefix]="passwordIcon"
+                  placeholder="Password"
+                  nzSize="large"
+                  [nzVisibilityToggle]="true">
+                </nz-input-password>
+              </nz-form-control>
+            </div>
+          </div>
+  
+          <div nz-form-item nz-row>
+            <div nz-col [nzSpan]="24">
+              <nz-form-control
+                [nzValidateStatus]="registerForm.get('confirmPassword')?.invalid && registerForm.get('confirmPassword')?.touched ? 'error' : ''"
+                [nzErrorTip]="'Please confirm your password.'">
+                <nz-input-password
+                  formControlName="confirmPassword"
+                  [nzPrefix]="passwordIcon"
+                  placeholder="Confirm Password"
+                  nzSize="large"
+                  [nzVisibilityToggle]="true">
+                </nz-input-password>
+              </nz-form-control>
+            </div>
+          </div>
+  
+          <div nz-form-item>
+            <button
+              nz-button
+              nzType="primary"
+              [disabled]="!registerForm.valid"
+              class="submit-button">
+              Register
+            </button>
+          </div>
+        </form>
+      </nz-card-body>
+    </nz-card>
+  </div>
+  
+  <style>
+    .register-container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 50px 20px;
+    }
+  
+    nz-card {
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+  
+    .submit-button {
+      width: 100%;
+      padding: 12px;
+    }
+  
+    .text-center {
+      text-align: center;
+    }
+  
+    @media (max-width: 768px) {
+      .register-container {
+        padding: 20px;
+      }
+    }
+  </style>
+  
